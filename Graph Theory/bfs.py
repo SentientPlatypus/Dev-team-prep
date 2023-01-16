@@ -15,8 +15,6 @@ def shortestDistance(start:int, end:int) ->int:
     total_distances = {}
     queue.append(start)
     total_distances[start] = 0
-    paths = []
-
 
     if start == end:
         return 0
@@ -24,12 +22,6 @@ def shortestDistance(start:int, end:int) ->int:
     while queue:
         current = queue.pop(0)
         for node in our_graph[current]:
-            if paths:
-                for path in paths:
-                    if path[-1] == current:
-                        path.append(node)
-            else:
-                paths.append([current, node])
             queue.append(node)
 
             total_distances[node] = total_distances[current] + 1
